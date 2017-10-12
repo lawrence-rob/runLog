@@ -3,5 +3,5 @@ export interface Run{
     dateOf?:Date;
     distance?:number;
     timeFor?:number;
-    note?:string;
+    type?:string;
 }

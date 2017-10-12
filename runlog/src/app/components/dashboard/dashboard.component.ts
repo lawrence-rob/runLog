@@ -8,7 +8,8 @@ import { Run } from '../../models/Run';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {
+  constructor(
+  ) {
    }
 
   ngOnInit() {

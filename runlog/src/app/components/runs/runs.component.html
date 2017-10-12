@@ -1,3 +1,23 @@
-<p>
-  runs works!
-</p>
+<table *ngIf="runs?.length>0; else noRuns"  class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Date</th>
+      <th>Distance</th>
+      <th>Time</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr *ngFor="let run of runs">
+        <td>{{run.dateOf}}</td>
+        <td>{{run.distance}} miles</td>
+        <td>{{run.timeFor}} minutes</td>
+        <td>{{run.type}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<ng-template #noRuns>
+  <hr>
+  <h5>There are no runs in the system</h5>
+</ng-template>

@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 //Components
 import { AppComponent } from './app.component';
@@ -13,6 +12,7 @@ import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RunsComponent } from './components/runs/runs.component';
+import { RunService } from './services/run.service';
 
 
 const appRoutes: Routes = [
@@ -35,16 +35,18 @@ export const firebaseConfig = {
     AboutComponent,
     NavbarComponent,
     DashboardComponent,
-    RunsComponent,
+    RunsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [ ],
+  providers: [
+    AngularFireDatabase,
+    AngularFireAuth,
+    RunService
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
